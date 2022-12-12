@@ -1,0 +1,19 @@
+#!/usr/bin/zsh
+
+# history options
+export HISTFILE=$ZDOTDIR/.zsh_history
+export HISTSIZE=50000
+export SAVEHIST=10000
+setopt extended_history         # write history in :start:elasped;command format
+setopt hist_expire_dups_first   # expire duplicates first when trimming history
+setopt hist_ignore_dups         # ignore duplicate entries of previous events
+setopt hist_ignore_space        # prefix command with a space to skip it's recording
+setopt hist_verify              # don't execute immediately upon history expansion
+setopt share_history            # share history among all sessions
+
+# disable beeps
+unsetopt BEEP
+
+# load functions into fpath
+fpath+=($ZDOTDIR/functions)
+autoload -Uz open_command

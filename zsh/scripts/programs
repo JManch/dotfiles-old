@@ -1,0 +1,13 @@
+#!/usr/bin/zsh
+#
+# load pyenv
+# eval "$(pyenv init -)"
+
+# load fnm
+# export PATH=$HOME/.fnm:$PATH
+# eval "`fnm env`"
+
+# append asdf completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
