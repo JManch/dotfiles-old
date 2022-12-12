@@ -10,5 +10,5 @@ Add the following to /etc/zsh/zshenv: `export ZDOTDIR=~/.config/zsh`
 
 Use the `dotfiles` alias to interact with the repo
 
-Use `dotfiles submodules update --init --recursive` to initialise submodules  
-Use `dotfiles submodules update --remote --recursive` to update submodules
+Use `dotfiles submodule update --init --recursive` to initialise submodules  
+Use `dotfiles submodule update --remote --recursive` to update submodules
