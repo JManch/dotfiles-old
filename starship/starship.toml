@@ -32,9 +32,6 @@ style = "yellow"
 [azure]
 style = "blue"
 
-[[battery.display]]
-style = "red"
-
 [cmake]
 style = "blue"
 
