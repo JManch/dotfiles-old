@@ -29,7 +29,7 @@ o.wsl_domains = wsl_domains
 
 -- Visual
 o.font_size = 14
-o.font = wezterm.font("FiraCode NF")
+o.font = wezterm.font("FiraCode NFM")
 o.custom_block_glyphs = false
 -- o.window_decorations = "NONE"
 o.initial_rows = 21
