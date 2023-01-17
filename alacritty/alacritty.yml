@@ -1,0 +1,50 @@
+env:
+  # TERM: alacritty # Causes flickering
+  TERM: xterm-256color
+window:
+  dimensions:
+    columns: 100
+    lines: 30
+  decorations: none
+font:
+  size: 15
+  normal:
+    family: FiraCode NFM
+scrolling:
+  history: 10000
+shell:
+  program: C:/Users/Joshua/scoop/shims/pwsh.exe
+  args:
+    - -nologo
+    - -noexit
+    - -command winfetch
+working_directory: C:/Users/Joshua
+colors:
+  primary:
+    background: '#1f2430'
+    foreground: '#cbccc6'
+    bright_foreground: '#f28779'
+  normal:
+    black: "#191e2a"
+    red: "#ed8274"
+    green: "#a6cc70"
+    yellow: "#fad07b"
+    blue: "#6dcbfa"
+    magenta: "#cfbafa"
+    cyan: "#90e1c6"
+    white: "#c7c7c7"
+  bright:
+    black: "#686868"
+    red: "#f28779"
+    green: "#bae67e"
+    yellow: "#ffd580"
+    blue: "#73d0ff"
+    magenta: "#d4bfff"
+    cyan: "#95e6cb"
+    white: "#ffffff"
+mouse:
+  hide_when_typing: true
+debug:
+  render_timer: false
+key_bindings:
+  - { key: Space, mods: Control, chars: "\x00" }
