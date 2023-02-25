@@ -1,17 +1,21 @@
 env:
   # TERM: alacritty # Causes flickering
   TERM: xterm-256color
+  # Used by Neovim to tell if we are using alacritty
+  ALACRITTY: "true"
 window:
   dimensions:
     columns: 100
     lines: 30
   decorations: full
+  dynamic_title: false
 font:
-  size: 15
+  size: 14
   normal:
     family: FiraCode NFM
 scrolling:
   history: 10000
+live_config_reload: true
 shell:
   program: C:/Users/Joshua/scoop/shims/pwsh.exe
   args:
@@ -19,29 +23,54 @@ shell:
     - -noexit
     - -command winfetch
 working_directory: C:/Users/Joshua
-colors:
-  primary:
-    background: '#1f2430'
-    foreground: '#cbccc6'
-    bright_foreground: '#f28779'
-  normal:
-    black: "#191e2a"
-    red: "#ed8274"
-    green: "#a6cc70"
-    yellow: "#fad07b"
-    blue: "#6dcbfa"
-    magenta: "#cfbafa"
-    cyan: "#90e1c6"
-    white: "#c7c7c7"
-  bright:
-    black: "#686868"
-    red: "#f28779"
-    green: "#bae67e"
-    yellow: "#ffd580"
-    blue: "#73d0ff"
-    magenta: "#d4bfff"
-    cyan: "#95e6cb"
-    white: "#ffffff"
+schemes:
+  ayu_light: &light
+    primary:
+      background: '#f8f9fa'
+      foreground: '#8a9199'
+      bright_foreground: '#f07171'
+    normal:
+      black: "#686868"
+      red: "#f07171"
+      green: "#86b300"
+      yellow: "#f2ae49"
+      blue: "#399ee6"
+      magenta: "#d4bfff"
+      cyan: "#4cbf99"
+      white: "#ffffff"
+    bright:
+      black: "#686868"
+      red: "#f07171"
+      green: "#86b300"
+      yellow: "#f2ae49"
+      blue: "#399ee6"
+      magenta: "#d4bfff"
+      cyan: "#4cbf99"
+      white: "#ffffff"
+  ayu_mirage: &dark
+    primary:
+      background: '#1f2430'
+      foreground: '#cbccc6'
+      bright_foreground: '#f28779'
+    normal:
+      black: "#191e2a"
+      red: "#ed8274"
+      green: "#a6cc70"
+      yellow: "#fad07b"
+      blue: "#6dcbfa"
+      magenta: "#cfbafa"
+      cyan: "#90e1c6"
+      white: "#c7c7c7"
+    bright:
+      black: "#686868"
+      red: "#f28779"
+      green: "#bae67e"
+      yellow: "#ffd580"
+      blue: "#73d0ff"
+      magenta: "#d4bfff"
+      cyan: "#95e6cb"
+      white: "#ffffff"
+colors: *dark
 mouse:
   hide_when_typing: true
 debug:
