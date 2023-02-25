@@ -1,0 +1,282 @@
+gaps:
+  inner_gap: 20
+  outer_gap: 20
+
+general:
+  show_floating_on_top: false
+  cursor_follows_focus: true
+  floating_window_move_amount: "5%"
+
+bar:
+  height: "30px"
+  position: "top"
+  opacity: 1.0
+  background: "#1F2430"
+  foreground: "#FAFAFA"
+  font_family: "FiraCode NFM"
+  font_size: "16px"
+  padding: "4px 6px"
+  offset_x: "0"
+  offset_y: "0"
+  border_radius: "0"
+  components_left:
+    - type: "workspaces"
+      focused_workspace_background: "#ffffff33"
+      displayed_workspace_background: "#00000033"
+      default_workspace_background: "transparent"
+  components_center:
+    - type: "window title"
+  components_right:
+    - type: "system tray"
+    - type: "tiling direction"
+      label_horizontal: "⮂"
+      label_vertical: "⮁"
+      background: "#20242cc4"
+      margin: "0 4px"
+      padding: "0 8px"
+    - type: "binding mode"
+      background: "#ffffff33"
+      margin: "0 4px 0 0"
+      padding: "0 8px"
+    - type: "clock"
+      time_formatting: "HH:mm ddd MMM d"
+      margin: "0 0 0 10px"
+
+workspaces:
+  - name: "1"
+  - name: "2"
+  - name: "3"
+  - name: "4"
+  - name: "5"
+  - name: "6"
+  - name: "7"
+  - name: "8"
+  - name: "9"
+
+window_rules:
+  # Ignored windows
+  - command: "ignore"
+    match_process_name: "Taskmgr"
+  - command: "ignore"
+    match_process_name: "fsd-win64-shipping"
+  - command: "ignore"
+    match_process_name: "Flow.Launcher"
+  - command: "ignore"
+    match_process_name: "Unity"
+
+  # Floating windows
+  - command: "set floating"
+    match_class_name: "#32770" # System dialogs
+  - command: "set floating"
+    match_class_name: "operationstatuswindow" # system dialogs
+  - command: "set floating"
+    match_class_name: "UnityWndClass"
+  - command: "set floating"
+    match_process_name: "nvcplui"
+  - command: "set floating"
+    match_process_name: "steam"
+  - command: "set floating"
+    match_process_name: "OneCommander"
+  - command: "set floating"
+    match_process_name: "mmc"
+  - command: "set floating"
+    match_process_name: "7zFM"
+
+  # Resize borders
+  - command: "resize borders 0px -7px -7px -7px"
+    match_process_name: "steam"
+  - command: "resize borders 0px -7px -7px -7px"
+    match_process_name: "chatterino"
+
+binding_modes:
+  - name: "resize"
+    keybindings:
+      # Resize focused window by a percentage or pixel amount.
+      - command: "resize width -2%"
+        binding: "H"
+      - command: "resize width +2%"
+        binding: "L"
+      - command: "resize height +2%"
+        binding: "K"
+      - command: "resize height -2%"
+        binding: "J"
+      # Press enter/escape to return to default keybindings.
+      - command: "binding mode none"
+        bindings: ["Escape", "Enter"]
+
+  - name: "programs"
+    keybindings:
+      # Resize focused window by a percentage or pixel amount.
+      - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\Everything.lnk'", "binding mode none"]
+        binding: "E"
+      - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\OneCommander.lnk'", "binding mode none"]
+        binding: "O"
+      - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Steam\\Steam.lnk'", "binding mode none"]
+        binding: "S"
+      - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Discord Inc\\Discord.lnk'", "binding mode none"]
+        binding: "D"
+      - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\Neovide.lnk'", "binding mode none"]
+        binding: "N"
+      - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\WSL Nvim.lnk'", "binding mode none"]
+        binding: "Shift+N"
+      - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\Alacritty.lnk'", "binding mode none"]
+        binding: "Enter"
+
+      # Press escape to return to default keybindings.
+      - command: "binding mode none"
+        bindings: ["Escape"]
+
+  - name: "disabled"
+    keybindings:
+      - command: "binding mode none"
+        binding: "Escape"
+
+keybindings:
+  # Shift focus in a given direction.
+  - command: "focus left"
+    binding: "Alt+H"
+  - command: "focus right"
+    binding: "Alt+L"
+  - command: "focus up"
+    binding: "Alt+K"
+  - command: "focus down"
+    binding: "Alt+J"
+
+  # Move focused window in a given direction.
+  - command: "move left"
+    bindings: ["Alt+Shift+H"]
+  - command: "move right"
+    bindings: ["Alt+Shift+L"]
+  - command: "move up"
+    bindings: ["Alt+Shift+K"]
+  - command: "move down"
+    bindings: ["Alt+Shift+J"]
+
+  # As an alternative to the resize keybindings above, resize mode enables resizing via
+  # HJKL or arrow keys. The binding mode is defined above with the name "resize".
+  - command: "binding mode resize"
+    binding: "Alt+R"
+
+  - command: "binding mode programs"
+    binding: "Alt+O"
+
+  # Disable bindings
+  - command: "binding mode disabled"
+    binding: "Alt+Escape"
+
+  # Toggle tiling direction. This determines where new tiling windows will be inserted.
+  - command: "tiling direction toggle"
+    binding: "Alt+X"
+
+  # Change focus between floating / tiling windows.
+  - command: "toggle focus mode"
+    binding: "Alt+F"
+
+  # Change the focused window to be floating / tiling.
+  - command: "toggle floating"
+    binding: "Alt+C"
+
+  # Change the focused window to be maximized / unmaximized.
+  - command: "toggle maximized"
+    binding: "Alt+E"
+
+  # Minimize focused window.
+  - command: "set minimized"
+    binding: "Alt+M"
+
+  # Close focused window.
+  - command: "close"
+    binding: "Alt+W"
+
+  # Kill GlazeWM process safely.
+  - command: "exit wm"
+    binding: "Alt+Shift+E"
+
+  # Re-evaluate configuration file.
+  - command: "reload config"
+    binding: "Alt+Shift+R"
+
+  # Launch CMD terminal (alternatively `exec wt` or `exec %ProgramFiles%/Git/git-bash.exe`
+  # to start Windows Terminal and Git Bash respectively.
+  - command: "exec 'C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Firefox.lnk'"
+    binding: "Alt+Back"
+
+  # Focus the workspace that last had focus.
+  - command: "focus workspace recent"
+    binding: "Alt+N"
+
+  # Focus the next/previous workspace defined in `workspaces` config.
+  - command: "focus workspace next"
+    binding: "Alt+T"
+  - command: "focus workspace prev"
+    binding: "Alt+Shift+T"
+
+  # Change focus to a workspace defined in `workspaces` config.
+  - command: "focus workspace 1"
+    binding: "Alt+1"
+  - command: "focus workspace 2"
+    binding: "Alt+2"
+  - command: "focus workspace 3"
+    binding: "Alt+3"
+  - command: "focus workspace 4"
+    binding: "Alt+4"
+  - command: "focus workspace 5"
+    binding: "Alt+5"
+  - command: "focus workspace 6"
+    binding: "Alt+6"
+  - command: "focus workspace 7"
+    binding: "Alt+7"
+  - command: "focus workspace 8"
+    binding: "Alt+8"
+  - command: "focus workspace 9"
+    binding: "Alt+9"
+
+  # Move focused workspace to a monitor in a given direction.
+  - command: "move workspace left"
+    binding: "Alt+Shift+A"
+  - command: "move workspace right"
+    binding: "Alt+Shift+F"
+  - command: "move workspace up"
+    binding: "Alt+Shift+D"
+  - command: "move workspace down"
+    binding: "Alt+Shift+S"
+
+  # Move focused window to a workspace defined in `workspaces` config.
+  - commands: ["move to workspace 1", "focus workspace 1"]
+    binding: "Alt+Shift+1"
+  - commands: ["move to workspace 2", "focus workspace 2"]
+    binding: "Alt+Shift+2"
+  - commands: ["move to workspace 3", "focus workspace 3"]
+    binding: "Alt+Shift+3"
+  - commands: ["move to workspace 4", "focus workspace 4"]
+    binding: "Alt+Shift+4"
+  - commands: ["move to workspace 5", "focus workspace 5"]
+    binding: "Alt+Shift+5"
+  - commands: ["move to workspace 6", "focus workspace 6"]
+    binding: "Alt+Shift+6"
+  - commands: ["move to workspace 7", "focus workspace 4"]
+    binding: "Alt+Shift+7"
+  - commands: ["move to workspace 8", "focus workspace 5"]
+    binding: "Alt+Shift+8"
+  - commands: ["move to workspace 9", "focus workspace 6"]
+    binding: "Alt+Shift+9"
+
+    # Move focused window to a workspace without focusing workspace
+  - commands: ["move to workspace 1"]
+    binding: "Alt+Shift+Control+1"
+  - commands: ["move to workspace 2"]
+    binding: "Alt+Shift+Control+2"
+  - commands: ["move to workspace 3"]
+    binding: "Alt+Shift+Control+3"
+  - commands: ["move to workspace 4"]
+    binding: "Alt+Shift+Control+4"
+  - commands: ["move to workspace 5"]
+    binding: "Alt+Shift+Control+5"
+  - commands: ["move to workspace 6"]
+    binding: "Alt+Shift+Control+6"
+  - commands: ["move to workspace 7"]
+    binding: "Alt+Shift+Control+7"
+  - commands: ["move to workspace 8"]
+    binding: "Alt+Shift+Control+8"
+  - commands: ["move to workspace 9"]
+    binding: "Alt+Shift+Control+9"
