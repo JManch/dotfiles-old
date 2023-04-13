@@ -4,8 +4,9 @@ gaps:
 
 general:
   show_floating_on_top: false
-  cursor_follows_focus: true
+  cursor_follows_focus: false # Want to use this but it's broken
   floating_window_move_amount: "5%"
+  focus_border_color: "#FA8D3EFF"
 
 bar:
   height: "30px"
@@ -54,39 +55,31 @@ workspaces:
   - name: "9"
 
 window_rules:
-  # Ignored windows
+  # Utils
   - command: "ignore"
-    match_process_name: "Taskmgr"
-  - command: "ignore"
-    match_process_name: "fsd-win64-shipping"
-  - command: "ignore"
-    match_process_name: "Flow.Launcher"
-  - command: "ignore"
-    match_process_name: "Unity"
+    match_process_name: "/Taskmgr|ArgusMonitor"
+  - command: "set floating"
+    match_process_name: "/nvcplui|7zFM/"
+  - command: "set floating"
+    match_class_name: "/#32770|operationstatuswindow/" # System dialogs
 
-  # Floating windows
+  # Games
+  - command: "ignore"
+    match_process_name: "/fsd-win64-shipping|RocketLeague|GameEngineMainWindow|acsW|BONELAB_Steam_Windows64|csgo/"
   - command: "set floating"
-    match_class_name: "#32770" # System dialogs
+    match_process_name: "/mmc/"
+
+  # Applications
+  - command: "ignore"
+    match_process_name: "/Flow.Launcher|Unity|RealHeadMotionAssettoCorsaCompetizione|content manager/"
   - command: "set floating"
-    match_class_name: "operationstatuswindow" # system dialogs
+    match_process_name: "/steam|OneCommander/"
   - command: "set floating"
-    match_class_name: "UnityWndClass"
-  - command: "set floating"
-    match_process_name: "nvcplui"
-  - command: "set floating"
-    match_process_name: "steam"
-  - command: "set floating"
-    match_process_name: "OneCommander"
-  - command: "set floating"
-    match_process_name: "mmc"
-  - command: "set floating"
-    match_process_name: "7zFM"
+    match_class_name: "/UnityWndClass/"
 
   # Resize borders
   - command: "resize borders 0px -7px -7px -7px"
-    match_process_name: "steam"
-  - command: "resize borders 0px -7px -7px -7px"
-    match_process_name: "chatterino"
+    match_process_name: "/steam|chatterino/"
 
 binding_modes:
   - name: "resize"
@@ -111,14 +104,8 @@ binding_modes:
         binding: "E"
       - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\OneCommander.lnk'", "binding mode none"]
         binding: "O"
-      - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Steam\\Steam.lnk'", "binding mode none"]
-        binding: "S"
-      - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Discord Inc\\Discord.lnk'", "binding mode none"]
-        binding: "D"
-      - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\Neovide.lnk'", "binding mode none"]
+      - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\Neovim.lnk'", "binding mode none"]
         binding: "N"
-      - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\WSL Nvim.lnk'", "binding mode none"]
-        binding: "Shift+N"
       - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\Alacritty.lnk'", "binding mode none"]
         binding: "Enter"
 
