@@ -1,0 +1,22 @@
+Windows Registry Editor Version 5.00
+
+; Open file with Neovim context menu entry
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open with &Neovim]
+@="Open with &Neovim"
+"Icon"="C:\\Users\\Joshua\\scoop\\apps\\neovim\\current\\bin\\nvim-qt.exe\"
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open with &Neovim\command]
+@="\"C:\\Users\\Joshua\\scoop\\apps\\alacritty\\current\\alacritty.exe\" -T Neovim -e nvim \"%1\""
+
+; Open directory with Alacritty context menu entry
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with &Alacritty]
+@="Open with &Alacritty"
+"Icon"="C:\\Users\\Joshua\\scoop\\apps\\alacritty\\current\\alacritty.exe"
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with &Alacritty\command]
+@="\"C:\\Users\\Joshua\\scoop\\apps\\alacritty\\current\\alacritty.exe\" --working-directory \"%1\""
+
+; Open background (clicking on blank space) directory with Alacritty context menu entry
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open with &Alacritty]
+@="Open with &Alacritty"
+"Icon"="C:\\Users\\Joshua\\scoop\\apps\\alacritty\\current\\alacritty.exe"
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open with &Alacritty\command]
+@="\"C:\\Users\\Joshua\\scoop\\apps\\alacritty\\current\\alacritty.exe\" --working-directory \"%V\""
