@@ -6,7 +6,7 @@ general:
   show_floating_on_top: false
   cursor_follows_focus: false # Want to use this but it's broken
   floating_window_move_amount: "5%"
-  focus_border_color: "#FA8D3EFF"
+  focus_border_color: "#77A8D9FF"
 
 bar:
   height: "30px"
@@ -44,42 +44,71 @@ bar:
       margin: "0 0 0 10px"
 
 workspaces:
-  - name: "1"
   - name: "2"
-  - name: "3"
+    display_name: "2:web"
+    bind_to_monitor: 2
   - name: "4"
-  - name: "5"
+    display_name: "4:social"
+    bind_to_monitor: 2
   - name: "6"
-  - name: "7"
+    display_name: "6:misc"
+    bind_to_monitor: 2
   - name: "8"
+    display_name: "8:twitch"
+    bind_to_monitor: 2
+  - name: "1"
+    display_name: "1:main"
+    bind_to_monitor: 1
+  - name: "3"
+    display_name: "3:files"
+    bind_to_monitor: 1
+  - name: "5"
+    display_name: "5:web"
+    bind_to_monitor: 1
+  - name: "7"
+    display_name: "7:games"
+    bind_to_monitor: 1
   - name: "9"
+    display_name: "9:misc"
+    bind_to_monitor: 1
 
 window_rules:
-  # Utils
+  # --- Ignore rules ---
+  - command: "ignore" # Misc
+    match_process_name: "/Taskmgr|ArgusMonitor|ScreenClippingHost/"
   - command: "ignore"
-    match_process_name: "/Taskmgr|ArgusMonitor"
-  - command: "set floating"
-    match_process_name: "/nvcplui|7zFM/"
-  - command: "set floating"
     match_class_name: "/#32770|operationstatuswindow/" # System dialogs
-
-  # Games
-  - command: "ignore"
+  - command: "ignore" # Games
     match_process_name: "/fsd-win64-shipping|RocketLeague|GameEngineMainWindow|acsW|BONELAB_Steam_Windows64|csgo/"
-  - command: "set floating"
-    match_process_name: "/mmc/"
-
-  # Applications
-  - command: "ignore"
+  - command: "ignore" # Applications
     match_process_name: "/Flow.Launcher|Unity|RealHeadMotionAssettoCorsaCompetizione|content manager/"
+
+  # --- Floating rules ---
   - command: "set floating"
-    match_process_name: "/steam|OneCommander/"
+    match_process_name: "/OneCommander|nvcplui|7zFM|mmc|steam|AutoHotkeyUX|ApplicationFrameHost/"
   - command: "set floating"
     match_class_name: "/UnityWndClass/"
 
-  # Resize borders
+  # --- Resize rules ---
   - command: "resize borders 0px -7px -7px -7px"
     match_process_name: "/steam|chatterino/"
+
+  # --- Workspace move rules ---
+  # Games
+  - commands: ["move to workspace 7", "focus workspace 7"]
+    match_process_name: "/steam|mmc/"
+  # Files
+  - commands: ["move to workspace 3", "focus workspace 3"]
+    match_process_name: "/OneCommander/"
+  # Social
+  - commands: ["move to workspace 4", "focus workspace 4"]
+    match_process_name: "/Discord|Spotify/"
+  # Twitch
+  - commands: ["move to workspace 8", "focus workspace 8"]
+    match_process_name: "/chatterino/"
+  # Settings
+  - commands: ["move to workspace 6", "focus workspace 6"]
+    match_process_name: "/ApplicationFrameHost/"
 
 binding_modes:
   - name: "resize"
@@ -194,9 +223,9 @@ keybindings:
 
   # Focus the next/previous workspace defined in `workspaces` config.
   - command: "focus workspace next"
-    binding: "Alt+T"
+    binding: "Alt+Right"
   - command: "focus workspace prev"
-    binding: "Alt+Shift+T"
+    binding: "Alt+Left"
 
   # Change focus to a workspace defined in `workspaces` config.
   - command: "focus workspace 1"
