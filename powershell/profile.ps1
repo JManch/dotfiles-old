@@ -7,6 +7,9 @@ function ll_func {
 }
 Set-Alias -Name ll -Value ll_func
 
+# Neovim nightly alias
+Set-Alias -Name nnvim -Value "C:\NVME Files\Personal\Programs\Neovim-nightly\bin\nvim.exe"
+
 # dotfiles alias
 function dotfiles_func {
     git --git-dir=$HOME\.config\.dotfiles --work-tree=$HOME\.config $args;
