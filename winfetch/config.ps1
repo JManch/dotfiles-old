@@ -10,7 +10,7 @@ $image = "~/.config/winfetch/NCASE-M1.png"
 # $logo = "Windows 10"
 
 # Specify width for image/logo
-$imgwidth = 40
+$imgwidth = 30
 
 $alphathreshold = 50
 
@@ -64,11 +64,11 @@ $ShowPkgs = @("scoop")
 
 @(
     "title"
-    "dashes"
+    # "dashes"
     "os"
     "computer"
-    "kernel"
-    "motherboard"
+    # "kernel"
+    # "motherboard"
     # "custom_time"  # use custom info line
     "uptime"
     # "ps_pkgs"  # takes some time
@@ -76,7 +76,7 @@ $ShowPkgs = @("scoop")
     "pwsh"
     "resolution"
     "terminal"
-    "theme"
+    # "theme"
     "cpu"
     "gpu"
     # "cpu_usage"  # takes some time
