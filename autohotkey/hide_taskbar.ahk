@@ -1,15 +1,19 @@
 #NoEnv
 #NoTrayIcon
+#SingleInstance force
+
+SendMode Input
+
 WinSet, Transparent, 0, ahk_class Shell_TrayWnd
 WinSet, Transparent, 0, ahk_class Shell_SecondaryTrayWnd
 
-^LWin:: ;Ctrl + left Win key
-If Transparent := !Transparent
+^LWin:: ; Ctrl + left Win key
+if Transparent := !Transparent
 {
 	WinSet, Transparent, 0, ahk_class Shell_TrayWnd
 	WinSet, Transparent, 0, ahk_class Shell_SecondaryTrayWnd
 }
-Else
+else
 {
 	WinSet, Transparent, 255, ahk_class Shell_TrayWnd
 	WinSet, Transparent, 255, ahk_class Shell_SecondaryTrayWnd
@@ -20,4 +24,4 @@ Else
 	WinSet, Redraw,, ahk_class Shell_TrayWnd
 	WinSet, Redraw,, ahk_class Shell_SecondaryTrayWnd
 }
-Return
+return
