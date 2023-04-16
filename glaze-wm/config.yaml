@@ -48,7 +48,7 @@ workspaces:
     display_name: "2:web"
     bind_to_monitor: 2
   - name: "4"
-    display_name: "4:social"
+    display_name: "4:media"
     bind_to_monitor: 2
   - name: "6"
     display_name: "6:misc"
@@ -66,37 +66,46 @@ workspaces:
     display_name: "5:web"
     bind_to_monitor: 1
   - name: "7"
-    display_name: "7:games"
+    display_name: "7:settings"
     bind_to_monitor: 1
   - name: "9"
-    display_name: "9:misc"
+    display_name: "9:games"
     bind_to_monitor: 1
 
 window_rules:
   # --- Ignore rules ---
   - command: "ignore" # Misc
-    match_process_name: "/Taskmgr|ArgusMonitor|ScreenClippingHost/"
+    match_process_name: "/Taskmgr|BCUninstaller|ArgusMonitor|ScreenClippingHost|OpenWith|parsecd/"
   - command: "ignore"
-    match_class_name: "/#32770|operationstatuswindow/" # System dialogs
+    match_class_name: "/#32770|operationstatuswindow|RAIL_WINDOW/" # System dialogs and WSL windows
   - command: "ignore" # Games
-    match_process_name: "/fsd-win64-shipping|RocketLeague|GameEngineMainWindow|acsW|BONELAB_Steam_Windows64|csgo/"
+    match_process_name: "/fsd-win64-shipping|RocketLeague|acsW|BONELAB_Steam_Windows64|csgo/"
+  - command: "ignore"
+    match_class_name: "/GameEngineMainWindow/"
   - command: "ignore" # Applications
     match_process_name: "/Flow.Launcher|Unity|RealHeadMotionAssettoCorsaCompetizione|content manager/"
 
   # --- Floating rules ---
   - command: "set floating"
-    match_process_name: "/OneCommander|nvcplui|7zFM|mmc|steam|AutoHotkeyUX|ApplicationFrameHost/"
+    match_process_name: "/steam|AutoHotkeyUX/"
   - command: "set floating"
     match_class_name: "/UnityWndClass/"
+  - command: "set floating"
+    match_process_name: "chatterino"
+    match_title: "/.*Usercard.*|Chatterino Settings|Reply Thread.*/"
 
-  # --- Resize rules ---
+  # --- Tiling rules ---
+  - command: "set tiling"
+    match_process_name: "mpv"
+
+  # --- Border resize rules ---
   - command: "resize borders 0px -7px -7px -7px"
-    match_process_name: "/steam|chatterino/"
+    match_process_name: "/steam|mpv/"
 
   # --- Workspace move rules ---
   # Games
-  - commands: ["move to workspace 7", "focus workspace 7"]
-    match_process_name: "/steam|mmc/"
+  - commands: ["move to workspace 9", "focus workspace 9"]
+    match_process_name: "/steam/"
   # Files
   - commands: ["move to workspace 3", "focus workspace 3"]
     match_process_name: "/OneCommander/"
@@ -104,11 +113,17 @@ window_rules:
   - commands: ["move to workspace 4", "focus workspace 4"]
     match_process_name: "/Discord|Spotify/"
   # Twitch
-  - commands: ["move to workspace 8", "focus workspace 8"]
+  - commands: ["move to workspace 8", "focus workspace 8", "resize borders 20px 13px 13px -7px"]
     match_process_name: "/chatterino/"
+  - commands: ["move to workspace 8", "focus workspace 8", "move left", "resize borders 20px 13px 13px 13px", "set width 81%"]
+    match_process_name: "mpv"
+    match_title: "/twitch.*/"
   # Settings
-  - commands: ["move to workspace 6", "focus workspace 6"]
-    match_process_name: "/ApplicationFrameHost/"
+  - commands: ["move to workspace 7", "focus workspace 7"]
+    match_process_name: "/ApplicationFrameHost|nvcplui|mmc/"
+  - commands: ["move to workspace 7", "focus workspace 7"]
+    match_process_name: "explorer"
+    match_title: "/Control Panel.*/"
 
 binding_modes:
   - name: "resize"
@@ -160,13 +175,13 @@ keybindings:
 
   # Move focused window in a given direction.
   - command: "move left"
-    bindings: ["Alt+Shift+H"]
+    binding: "Alt+Shift+H"
   - command: "move right"
-    bindings: ["Alt+Shift+L"]
+    binding: "Alt+Shift+L"
   - command: "move up"
-    bindings: ["Alt+Shift+K"]
+    binding: "Alt+Shift+K"
   - command: "move down"
-    bindings: ["Alt+Shift+J"]
+    binding: "Alt+Shift+J"
 
   # As an alternative to the resize keybindings above, resize mode enables resizing via
   # HJKL or arrow keys. The binding mode is defined above with the name "resize".
@@ -196,6 +211,18 @@ keybindings:
   - command: "toggle maximized"
     binding: "Alt+E"
 
+  # Disable window borders
+  - command: "resize borders 20px"
+    binding: "Alt+B"
+
+  # Enable window borders
+  - command: "resize borders 0px"
+    binding: "Alt+Shift+B"
+
+  # Set size of twitch player
+  - command: "set width 81%"
+    binding: "Alt+Shift+T"
+
   # Minimize focused window.
   - command: "set minimized"
     binding: "Alt+M"
@@ -223,9 +250,9 @@ keybindings:
 
   # Focus the next/previous workspace defined in `workspaces` config.
   - command: "focus workspace next"
-    binding: "Alt+Right"
+    bindings: ["Alt+Right", "XButton1"]
   - command: "focus workspace prev"
-    binding: "Alt+Left"
+    bindings: ["Alt+Left", "XButton2"]
 
   # Change focus to a workspace defined in `workspaces` config.
   - command: "focus workspace 1"
@@ -278,21 +305,21 @@ keybindings:
     binding: "Alt+Shift+9"
 
     # Move focused window to a workspace without focusing workspace
-  - commands: ["move to workspace 1"]
+  - command: "move to workspace 1"
     binding: "Alt+Shift+Control+1"
-  - commands: ["move to workspace 2"]
+  - command: "move to workspace 2"
     binding: "Alt+Shift+Control+2"
-  - commands: ["move to workspace 3"]
+  - command: "move to workspace 3"
     binding: "Alt+Shift+Control+3"
-  - commands: ["move to workspace 4"]
+  - command: "move to workspace 4"
     binding: "Alt+Shift+Control+4"
-  - commands: ["move to workspace 5"]
+  - command: "move to workspace 5"
     binding: "Alt+Shift+Control+5"
-  - commands: ["move to workspace 6"]
+  - command: "move to workspace 6"
     binding: "Alt+Shift+Control+6"
-  - commands: ["move to workspace 7"]
+  - command: "move to workspace 7"
     binding: "Alt+Shift+Control+7"
-  - commands: ["move to workspace 8"]
+  - command: "move to workspace 8"
     binding: "Alt+Shift+Control+8"
-  - commands: ["move to workspace 9"]
+  - command: "move to workspace 9"
     binding: "Alt+Shift+Control+9"
