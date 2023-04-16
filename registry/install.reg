@@ -3,9 +3,12 @@ Windows Registry Editor Version 5.00
 ; Open file with Neovim context menu entry
 [HKEY_CURRENT_USER\Software\Classes\*\shell\Open with &Neovim]
 @="Open with &Neovim"
-"Icon"="C:\\Users\\Joshua\\scoop\\apps\\neovim\\current\\bin\\nvim-qt.exe\"
+"Icon"="C:\\Users\\Joshua\\scoop\\apps\\neovim\\current\\bin\\nvim-qt.exe"
 [HKEY_CURRENT_USER\Software\Classes\*\shell\Open with &Neovim\command]
-@="\"C:\\Users\\Joshua\\scoop\\apps\\alacritty\\current\\alacritty.exe\" -T Neovim -e nvim \"%1\""
+; (Took ages to get this. Crucial part is that the Alacritty -e argument must be
+; surrounded by double quotation marks and each double quotation mark within
+; there must have TWO double quotation marks around it)
+@="\"C:\\Users\\Joshua\\scoop\\apps\\alacritty\\current\\alacritty.exe\" -T Neovim -e \"nvim -c \"\"set acd\"\" \"\"%1\"\"\""
 
 ; Open directory with Alacritty context menu entry
 [HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with &Alacritty]
