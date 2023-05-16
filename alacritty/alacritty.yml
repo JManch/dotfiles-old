@@ -3,9 +3,6 @@ env:
   # Used by Neovim to tell if we are using alacritty
   ALACRITTY: "true"
 window:
-  dimensions:
-    columns: 100
-    lines: 30
   decorations: full
   dynamic_title: false
 font:
@@ -69,7 +66,7 @@ schemes:
       magenta: "#d4bfff"
       cyan: "#95e6cb"
       white: "#ffffff"
-colors: *dark
+colors: *light
 mouse:
   hide_when_typing: true
 debug:
