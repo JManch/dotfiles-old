@@ -14,7 +14,7 @@ bar:
   opacity: 1.0
   background: "#1F2430"
   foreground: "#FAFAFA"
-  font_family: "FiraCode NFM"
+  font_family: "FiraCode Nerd Font Mono"
   font_size: "16px"
   padding: "4px 6px"
   offset_x: "0"
@@ -77,22 +77,31 @@ window_rules:
   - command: "ignore" # Misc
     match_process_name: "/Taskmgr|BCUninstaller|ArgusMonitor|ScreenClippingHost|OpenWith|parsecd/"
   - command: "ignore"
-    match_class_name: "/#32770|operationstatuswindow|RAIL_WINDOW/" # System dialogs and WSL windows
+    match_class_name: "/#32770|operationstatuswindow|RAIL_WINDOW|AutoHotKeyGUI/" # System dialogs and WSL windows
   - command: "ignore" # Games
-    match_process_name: "/fsd-win64-shipping|RocketLeague|acsW|BONELAB_Steam_Windows64|csgo/"
+    match_process_name: "/fsd-win64-shipping|RocketLeague|acsW|BONELAB_Steam_Windows64|csgo|bfv/"
   - command: "ignore"
-    match_class_name: "/GameEngineMainWindow/"
+    match_title: "/Minecraft.*/"
+  - command: "ignore"
+    match_class_name: "/GameEngineMainWindow|ThunderRT6FormDC/"
   - command: "ignore" # Applications
     match_process_name: "/Flow.Launcher|Unity|RealHeadMotionAssettoCorsaCompetizione|content manager/"
+  - command: "ignore" # Steam menu
+    match_class_name: "SDL_app"
+    match_title: "Menu"
 
   # --- Floating rules ---
   - command: "set floating"
-    match_process_name: "/steam|AutoHotkeyUX/"
+    match_process_name: "/AutoHotkeyUX|devenv/"
   - command: "set floating"
-    match_class_name: "/UnityWndClass/"
+    match_class_name: "/SDL_app|UnityWndClass/"
+  - command: "set floating"
+    match_process_name: "MultiMC"
+  - command: "set floating"
+    match_title: "Visual Studio Installer"
   - command: "set floating"
     match_process_name: "chatterino"
-    match_title: "/.*Usercard.*|Chatterino Settings|Reply Thread.*/"
+    match_title: "/.*Usercard.*|Chatterino Settings|Reply Thread.*|.*select stream quality.*|Emotes.*/"
 
   # --- Tiling rules ---
   - command: "set tiling"
@@ -100,12 +109,12 @@ window_rules:
 
   # --- Border resize rules ---
   - command: "resize borders 0px -7px -7px -7px"
-    match_process_name: "/steam|mpv/"
+    match_process_name: "/steam|mpv|OneCommander/"
 
   # --- Workspace move rules ---
   # Games
   - commands: ["move to workspace 9", "focus workspace 9"]
-    match_process_name: "/steam/"
+    match_process_name: "/steam|MultiMC/"
   # Files
   - commands: ["move to workspace 3", "focus workspace 3"]
     match_process_name: "/OneCommander/"
@@ -143,7 +152,6 @@ binding_modes:
 
   - name: "programs"
     keybindings:
-      # Resize focused window by a percentage or pixel amount.
       - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\Everything.lnk'", "binding mode none"]
         binding: "E"
       - commands: ["exec 'C:\\Users\\Joshua\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\OneCommander.lnk'", "binding mode none"]
