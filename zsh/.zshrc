@@ -1,5 +1,5 @@
-# zshrc is called every time an interactive shell is initialised
-#
+# zshrc is sourced for interactive shells
+
 # options
 source $ZDOTDIR/scripts/options
 
@@ -12,8 +12,5 @@ source $ZDOTDIR/scripts/aliases
 # plugins
 source $ZDOTDIR/scripts/plugins
 
-# wezterm
-source $ZDOTDIR/wezterm.sh
-
-# load theme
+# load starship
 eval "$(starship init zsh)"
