@@ -173,161 +173,161 @@ binding_modes:
 keybindings:
   # Shift focus in a given direction.
   - command: "focus left"
-    binding: "Alt+H"
+    binding: "LMenu+H"
   - command: "focus right"
-    binding: "Alt+L"
+    binding: "LMenu+L"
   - command: "focus up"
-    binding: "Alt+K"
+    binding: "LMenu+K"
   - command: "focus down"
-    binding: "Alt+J"
+    binding: "LMenu+J"
 
   # Move focused window in a given direction.
   - command: "move left"
-    binding: "Alt+Shift+H"
+    binding: "LMenu+Shift+H"
   - command: "move right"
-    binding: "Alt+Shift+L"
+    binding: "LMenu+Shift+L"
   - command: "move up"
-    binding: "Alt+Shift+K"
+    binding: "LMenu+Shift+K"
   - command: "move down"
-    binding: "Alt+Shift+J"
+    binding: "LMenu+Shift+J"
 
   # As an alternative to the resize keybindings above, resize mode enables resizing via
   # HJKL or arrow keys. The binding mode is defined above with the name "resize".
   - command: "binding mode resize"
-    binding: "Alt+R"
+    binding: "LMenu+R"
 
   - command: "binding mode programs"
-    binding: "Alt+O"
+    binding: "LMenu+O"
 
   # Disable bindings
   - command: "binding mode disabled"
-    binding: "Alt+Escape"
+    binding: "LMenu+Escape"
 
   # Toggle tiling direction. This determines where new tiling windows will be inserted.
   - command: "tiling direction toggle"
-    binding: "Alt+X"
+    binding: "LMenu+X"
 
   # Change focus between floating / tiling windows.
   - command: "toggle focus mode"
-    binding: "Alt+F"
+    binding: "LMenu+F"
 
   # Change the focused window to be floating / tiling.
   - command: "toggle floating"
-    binding: "Alt+C"
+    binding: "LMenu+C"
 
   # Change the focused window to be maximized / unmaximized.
   - command: "toggle maximized"
-    binding: "Alt+E"
+    binding: "LMenu+E"
 
   # Disable window borders
   - command: "resize borders 20px"
-    binding: "Alt+B"
+    binding: "LMenu+B"
 
   # Enable window borders
   - command: "resize borders 0px"
-    binding: "Alt+Shift+B"
+    binding: "LMenu+Shift+B"
 
   # Set size of twitch player
   - command: "set width 81%"
-    binding: "Alt+Shift+T"
+    binding: "LMenu+Shift+T"
 
   # Minimize focused window.
   - command: "set minimized"
-    binding: "Alt+M"
+    binding: "LMenu+M"
 
   # Close focused window.
   - command: "close"
-    binding: "Alt+W"
+    binding: "LMenu+W"
 
   # Kill GlazeWM process safely.
   - command: "exit wm"
-    binding: "Alt+Shift+E"
+    binding: "LMenu+Shift+E"
 
   # Re-evaluate configuration file.
   - command: "reload config"
-    binding: "Alt+Shift+R"
+    binding: "LMenu+Shift+R"
 
   # Launch CMD terminal (alternatively `exec wt` or `exec %ProgramFiles%/Git/git-bash.exe`
   # to start Windows Terminal and Git Bash respectively.
   - command: "exec 'C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Firefox.lnk'"
-    binding: "Alt+Back"
+    binding: "LMenu+Back"
 
   # Focus the workspace that last had focus.
   - command: "focus workspace recent"
-    binding: "Alt+N"
+    binding: "LMenu+N"
 
   # Focus the next/previous workspace defined in `workspaces` config.
   - command: "focus workspace next"
-    bindings: ["Alt+Right", "XButton1"]
+    bindings: ["LMenu+Right", "XButton1"]
   - command: "focus workspace prev"
-    bindings: ["Alt+Left", "XButton2"]
+    bindings: ["LMenu+Left", "XButton2"]
 
   # Change focus to a workspace defined in `workspaces` config.
   - command: "focus workspace 1"
-    binding: "Alt+1"
+    binding: "LMenu+1"
   - command: "focus workspace 2"
-    binding: "Alt+2"
+    binding: "LMenu+2"
   - command: "focus workspace 3"
-    binding: "Alt+3"
+    binding: "LMenu+3"
   - command: "focus workspace 4"
-    binding: "Alt+4"
+    binding: "LMenu+4"
   - command: "focus workspace 5"
-    binding: "Alt+5"
+    binding: "LMenu+5"
   - command: "focus workspace 6"
-    binding: "Alt+6"
+    binding: "LMenu+6"
   - command: "focus workspace 7"
-    binding: "Alt+7"
+    binding: "LMenu+7"
   - command: "focus workspace 8"
-    binding: "Alt+8"
+    binding: "LMenu+8"
   - command: "focus workspace 9"
-    binding: "Alt+9"
+    binding: "LMenu+9"
 
   # Move focused workspace to a monitor in a given direction.
   - command: "move workspace left"
-    binding: "Alt+Shift+A"
+    binding: "LMenu+Shift+A"
   - command: "move workspace right"
-    binding: "Alt+Shift+F"
+    binding: "LMenu+Shift+F"
   - command: "move workspace up"
-    binding: "Alt+Shift+D"
+    binding: "LMenu+Shift+D"
   - command: "move workspace down"
-    binding: "Alt+Shift+S"
+    binding: "LMenu+Shift+S"
 
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ["move to workspace 1", "focus workspace 1"]
-    binding: "Alt+Shift+1"
+    binding: "LMenu+Shift+1"
   - commands: ["move to workspace 2", "focus workspace 2"]
-    binding: "Alt+Shift+2"
+    binding: "LMenu+Shift+2"
   - commands: ["move to workspace 3", "focus workspace 3"]
-    binding: "Alt+Shift+3"
+    binding: "LMenu+Shift+3"
   - commands: ["move to workspace 4", "focus workspace 4"]
-    binding: "Alt+Shift+4"
+    binding: "LMenu+Shift+4"
   - commands: ["move to workspace 5", "focus workspace 5"]
-    binding: "Alt+Shift+5"
+    binding: "LMenu+Shift+5"
   - commands: ["move to workspace 6", "focus workspace 6"]
-    binding: "Alt+Shift+6"
+    binding: "LMenu+Shift+6"
   - commands: ["move to workspace 7", "focus workspace 4"]
-    binding: "Alt+Shift+7"
+    binding: "LMenu+Shift+7"
   - commands: ["move to workspace 8", "focus workspace 5"]
-    binding: "Alt+Shift+8"
+    binding: "LMenu+Shift+8"
   - commands: ["move to workspace 9", "focus workspace 6"]
-    binding: "Alt+Shift+9"
+    binding: "LMenu+Shift+9"
 
     # Move focused window to a workspace without focusing workspace
   - command: "move to workspace 1"
-    binding: "Alt+Shift+Control+1"
+    binding: "LMenu+Shift+Control+1"
   - command: "move to workspace 2"
-    binding: "Alt+Shift+Control+2"
+    binding: "LMenu+Shift+Control+2"
   - command: "move to workspace 3"
-    binding: "Alt+Shift+Control+3"
+    binding: "LMenu+Shift+Control+3"
   - command: "move to workspace 4"
-    binding: "Alt+Shift+Control+4"
+    binding: "LMenu+Shift+Control+4"
   - command: "move to workspace 5"
-    binding: "Alt+Shift+Control+5"
+    binding: "LMenu+Shift+Control+5"
   - command: "move to workspace 6"
-    binding: "Alt+Shift+Control+6"
+    binding: "LMenu+Shift+Control+6"
   - command: "move to workspace 7"
-    binding: "Alt+Shift+Control+7"
+    binding: "LMenu+Shift+Control+7"
   - command: "move to workspace 8"
-    binding: "Alt+Shift+Control+8"
+    binding: "LMenu+Shift+Control+8"
   - command: "move to workspace 9"
-    binding: "Alt+Shift+Control+9"
+    binding: "LMenu+Shift+Control+9"
