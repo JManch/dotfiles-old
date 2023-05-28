@@ -79,7 +79,7 @@ window_rules:
   - command: "ignore"
     match_class_name: "/#32770|operationstatuswindow|RAIL_WINDOW|AutoHotKeyGUI/" # System dialogs and WSL windows
   - command: "ignore" # Games
-    match_process_name: "/fsd-win64-shipping|RocketLeague|acsW|BONELAB_Steam_Windows64|csgo|bfv/"
+    match_process_name: "/fsd-win64-shipping|RocketLeague|acsW|BONELAB_Steam_Windows64|csgo|bfv|bf4|bf1/"
   - command: "ignore"
     match_title: "/Minecraft.*/"
   - command: "ignore"
