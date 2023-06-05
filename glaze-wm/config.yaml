@@ -75,7 +75,7 @@ workspaces:
 window_rules:
   # --- Ignore rules ---
   - command: "ignore" # Misc
-    match_process_name: "/Taskmgr|BCUninstaller|ArgusMonitor|ScreenClippingHost|OpenWith|parsecd/"
+    match_process_name: "/Taskmgr|BCUninstaller|ArgusMonitor|ScreenClippingHost|OpenWith|parsecd|Filen/"
   - command: "ignore"
     match_class_name: "/#32770|operationstatuswindow|RAIL_WINDOW|AutoHotKeyGUI/" # System dialogs and WSL windows
   - command: "ignore" # Games
