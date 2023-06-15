@@ -16,4 +16,4 @@ unsetopt BEEP
 
 # load functions into fpath
 fpath+=($ZDOTDIR/functions)
-autoload -Uz open_command
+autoload -Uz $ZDOTDIR/functions/*(:t)

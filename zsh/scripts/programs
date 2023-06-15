@@ -3,5 +3,6 @@
 # initialise completions with zsh's compinit
 autoload -Uz compinit && compinit
 
-# wezterm zsh integration
-source $ZDOTDIR/wezterm.sh
+# fzf completion
+source_if_exists /usr/share/fzf/key-bindings.zsh
+source_if_exists /usr/share/fzf/completion.zsh

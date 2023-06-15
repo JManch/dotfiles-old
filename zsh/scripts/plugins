@@ -1,13 +1,17 @@
 #!/usr/bin/zsh
 
-# Load plugins
-source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZDOTDIR/plugins/web-search.zsh
+# syntax highlight
+if [[ -d "$ZDOTDIR/plugins/zsh-syntax-highlighting" ]]; then
+    source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    typeset -A ZSH_HIGHLIGHT_STYLES # Declare the variable
+    ZSH_HIGHLIGHT_STYLES[path]=none # Remove underline style
+    ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+    ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
+    ZSH_HIGHLIGHT_STYLES[precommand]='fg=green'
+fi
 
-# zsh-syntax-highlight config
-typeset -A ZSH_HIGHLIGHT_STYLES # Declare the variable
-ZSH_HIGHLIGHT_STYLES[path]=none # Remove underline style
-ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=green'
+# autosuggestions
+source_if_exists $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# web search
+source_if_exists $ZDOTDIR/plugins/web-search.zsh
