@@ -4,6 +4,8 @@
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.config/.dotfiles --work-tree=$HOME/.config'
 alias please='sudo $(fc -ln -1)'
 alias reload='exec zsh'
+alias bootwindows='systemctl reboot --boot-loader-entry=windows.conf'
+alias bootbios='systemctl reboot --firmware-setup'
 
 # exa
 if (( $+commands[exa] )); then

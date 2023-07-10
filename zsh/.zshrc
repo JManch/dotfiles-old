@@ -12,5 +12,7 @@ source $ZDOTDIR/scripts/aliases
 # plugins
 source $ZDOTDIR/scripts/plugins
 
-# load starship
-eval "$(starship init zsh)"
+# load starship if not in tty
+if [[ "$TERM" != "linux" ]]; then
+    eval "$(starship init zsh)"
+fi
