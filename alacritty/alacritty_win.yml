@@ -1,19 +1,24 @@
+env:
+  TERM: xterm-256color
+  # Used by Neovim to tell if we are using alacritty
+  ALACRITTY: "true"
 window:
-  decorations: none
-  dynamic_title: true
-  opacity: 0.7
-  padding:
-    x: 5
-    y: 5
+  decorations: full
+  dynamic_title: false
 font:
-  size: 14
+  size: 16
   normal:
-    family: FiraCode Nerd Font
-    # family: Berkeley Mono Trial
-    style: Regular
+    family: FiraCode NFM
 scrolling:
   history: 10000
 live_config_reload: true
+shell:
+  program: C:/Users/Joshua/scoop/shims/pwsh.exe
+  args:
+    - -nologo
+    - -noexit
+    - -command winfetch
+working_directory: C:/Users/Joshua
 schemes:
   ayu_light: &light
     primary:
@@ -61,7 +66,7 @@ schemes:
       magenta: "#d4bfff"
       cyan: "#95e6cb"
       white: "#ffffff"
-colors: *dark
+colors: *light
 mouse:
   hide_when_typing: true
 debug:
