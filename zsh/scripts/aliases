@@ -6,6 +6,7 @@ alias please='sudo $(fc -ln -1)'
 alias reload='exec zsh'
 alias bootwindows='systemctl reboot --boot-loader-entry=windows.conf'
 alias bootbios='systemctl reboot --firmware-setup'
+alias waybarreload='killall waybar ; waybar & disown'
 
 # exa
 if (( $+commands[exa] )); then
