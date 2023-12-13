@@ -5,7 +5,7 @@ uniform int output;
 
 void main() {
     // Apply gamma adjustment to monitor
-    if (output == 2) {
+    if (output == 1) {
         vec4 pixColor = texture2D(tex, v_texcoord);
         pixColor.rgb = pow(pixColor.rgb, vec3(1.2));
         gl_FragColor = pixColor;
