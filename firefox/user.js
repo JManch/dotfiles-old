@@ -15,9 +15,9 @@ user_pref("gfx.font_rendering.cleartype_params.pixel_structure", 1);
 user_pref("gfx.font_rendering.directwrite.bold_simulation", 2);
 
 /* ---- Scrolling ---- */
-user_pref("mousewheel.default.delta_multiplier_x", 100);
-user_pref("mousewheel.default.delta_multiplier_y", 100);
-user_pref("mousewheel.default.delta_multiplier_z", 100);
+user_pref("mousewheel.default.delta_multiplier_x", 95);
+user_pref("mousewheel.default.delta_multiplier_y", 95);
+user_pref("mousewheel.default.delta_multiplier_z", 95);
 user_pref("general.smoothScroll.lines.durationMaxMS", 125);
 user_pref("general.smoothScroll.lines.durationMinMS", 125);
 user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 200);
@@ -40,3 +40,4 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 user_pref("browser.download.useDownloadDir", false);
 // Enable custom css
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("browser.sessionstore.resume_session_once", false)
